@@ -24,9 +24,6 @@
                                Phone Number
                             </th>
                             <th>
-
-                            </th>
-                            <th>
                                 Action
                             </th>
                         </thead>
@@ -37,7 +34,7 @@
                                     {{ $company->First_name." ".$company->Last_name }}
                                 </td>
                                 <td class="font-medium text-gray-900">
-                                    {{ $company->Company }}
+                                    {{ $company->company->Name }}
                                 </td>
                                 <td class="font-medium text-gray-900">
                                     {{ $company->email }}
@@ -46,13 +43,10 @@
                                     {{ $company->Phone_number }}
                                 </td>
                                 <td class="font-medium text-gray-900">
-                                    <a href="#"class="btn btn-primary">VIEW</a>
+                                    <a href="{{ route('Employee.edit.go',['id'=>$company->id]) }}"class="btn btn-primary">EDIT</a>
                                 </td>
                                 <td class="font-medium text-gray-900">
-                                    <a href="#"class="btn btn-primary">EDIT</a>
-                                </td>
-                                <td class="font-medium text-gray-900">
-                                    <a href="#"class="btn btn-danger">DELETE</a>
+                                    <a href="{{ route('Employee.delete',['id'=>$company->id]) }}"class="btn btn-danger">DELETE</a>
                                 </td>
                             </tr>
                             @endforeach

@@ -18,6 +18,6 @@ class Employee extends Model
         'website',
     ];
     public function company(){
-        return $this->belongsTo(Company::class);
+        return $this->belongsTo('App\Models\Company','Company','id');
     }
 }

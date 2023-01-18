@@ -29,7 +29,10 @@ Route::get('/Company/delete/{id}',[CompanyController::class,'destroy'])->middlew
 
 Route::get('/Employees_List',[EmployeeController::class,'index'])->middleware(['auth', 'verified'])->name('Employee.list');
 Route::get('/Employees/add',[EmployeeController::class,'create'])->middleware(['auth', 'verified'])->name('Employee.add.go');
-Route::post('/Employees/add',[EmployeeController::class,'index'])->middleware(['auth', 'verified'])->name('Employee.add');
+Route::post('/Employees/add',[EmployeeController::class,'store'])->middleware(['auth', 'verified'])->name('Employee.add');
+Route::get('/Employees/edit',[EmployeeController::class,'edit'])->middleware(['auth', 'verified'])->name('Employee.edit.go');
+Route::post('/Employees/edit',[EmployeeController::class,'update'])->middleware(['auth', 'verified'])->name('Employee.edit');
+Route::get('/Employees/delete',[EmployeeController::class,'destroy'])->middleware(['auth', 'verified'])->name('Employee.delete');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
